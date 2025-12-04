@@ -1,12 +1,5 @@
-import input from "analiza-sync"; 
-import r1 from "../riddles/r1.js";
-import r2 from "../riddles/r2.js";
-import r3 from "../riddles/r.js";
-import r4 from "../riddles/r4.js";
-import { log } from "console";
 
-
-function  createPlayer(name) {
+export function createPlayer(name) {
 
     let player = {
     "name": name,
@@ -15,19 +8,18 @@ function  createPlayer(name) {
     return player
 }
 
-function addSolveTime(player, seconds)  {
-    seconds = performance.now()
+export function addSolveTime(player, seconds)  {
     player.times.push(seconds)
 }
 
-function showStats(player){
+export function showStats(player){
     let sum = 0 
-    for (let index = 0; index < times.length; index++) {
-        sum += times[index]
-        
+    for (let index = 0; index < player.times.length; index++) {
+        sum += player.times[index]
+
     }
     console.log(`The time for all the puzzles is: ${sum}`);
-    console.log(`The average time for each puzzle is:, ${sum/times.length}`);
+    console.log(`The average time for each puzzle is:, ${sum/player.times.length}`);
     
     
 }
